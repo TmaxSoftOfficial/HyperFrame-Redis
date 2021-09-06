@@ -32,8 +32,8 @@
     
 ### 5) Redis 종료
 
-    $ 
-    $ 
+    $ cd ${REDIS_HOME}/src
+    $ ./redis-cli shutdown
 
 ## 디렉토리 구조
 
