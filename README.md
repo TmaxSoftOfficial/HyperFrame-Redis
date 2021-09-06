@@ -15,6 +15,26 @@
 
 ## 설치 및 실행
 
+### 1) Redis 압축 풀기
+
+    $ cd ${INSTALL_HOME}
+    $ tar -zxvf redis-6.2.3.tar.gz
+
+### 2) Redis 설치
+
+    $ cd ${REDIS_HOME}
+    $ make install
+
+### 4) Redis 실행
+
+    $ cd ${REDIS_HOME}/src
+    $ ./redis-cli
+    
+### 5) Redis 종료
+
+    $ 
+    $ 
+
 ## 디렉토리 구조
 
       Redis
@@ -30,3 +50,6 @@
       └── utils       
 
 ## 버전 확인
+
+    $ cd ${REDIS_HOME}/src
+    $ ./redis-server --version
