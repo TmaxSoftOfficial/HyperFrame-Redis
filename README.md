@@ -11,8 +11,22 @@
 
 ## 검증 환경
 
+* CentOS Linux release 7.7.1908
+
 ## 설치 및 실행
 
 ## 디렉토리 구조
+
+      Redis
+      ├── deps
+      ├── redis.conf 
+      ├── runtest            
+      ├── runtest-cluster            
+      ├── runtest-moduleapi
+      ├── runtest-sentinel       
+      ├── sentinel.conf
+      ├── src
+      ├── tests
+      └── utils       
 
 ## 버전 확인
