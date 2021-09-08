@@ -73,6 +73,13 @@
 
 ### 5) 모니터링
     $ redis-cli monitor
+    
+### 6) 데이터 입력 및 확인
+    $ redis-cli -c -p 6379  
+    $ 127.0.0.1:6379> set key1 value2 
+    -> Redirected to slot [9189] located at 127.0.0.1:6380 OK
+
+
 
 ## HA 구성하기 (Master slave)
 
@@ -178,6 +185,15 @@
     >>> Performing hash slots allocation on 3 nodes... Master[0] -> Slots 0 - 5460 Master[1] -> Slots 5461 - 10922 Master[2] -> Slots 10923 - 16383 M:        dc3803213aff6f279f6344559c8147198227aacc 127.0.0.1:6379 slots:[0-5460] (5461 slots) master
 
      .......
+     
+#### 2. cluster 정보 확인
+
+    $ redis-cli --cluster info 127.0.0.1:6379
+    127.0.0.1:6379 (dc380321...) -> 4 keys | 5461 slots | 1 slaves. 
+    127.0.0.1:6380 (b79c0eda...) -> 3 keys | 5462 slots | 1 slaves. 
+    127.0.0.1:6381 (18b188cb...) -> 1 keys | 5461 slots | 1 slaves. 
+    [OK] 8 keys in 3 masters. 
+    0.00 keys per slot on average.
     
 #### 5. 각 노드의 정보 확인
 
