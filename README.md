@@ -78,12 +78,38 @@
 
 ### 1) Sentinel 방식
 
-#### 1. sentinel config 설정
+#### 1. sentinel config 복사
 
     $ cd ${REDIS_HOME}                             ## sentinel 구성시 최소 3개이상의 conf 파일을 생성해야 한다.
     $ cp sentinel conf sentinel_11001.conf
     $ cp sentinel conf sentinel_11002.conf
     $ cp sentinel conf sentinel_11003.conf
+    
+#### 1.1 sentinel config 설정
+
+    cd redis_home_dirctory 
+    cp sentinel.conf sentinel_1001.conf ~ 1003.conf 
+
+    # 11001.conf ~ 11003.conf 
+    # 센티널이 실행될 포트로 각각 설정 
+    port 11001 pidfile "/var/run/redis-sentinel_11001.pid" 
+    logfile "/var/log/sentinel_11002.log" 
+
+    # 센티널이 감시할 레디스 Master 인스턴스 정보 기입 
+    sentinel monitor mymaster 127.0.0.1 6379 2 
+
+    # 센티널이 Master 인스턴스에 접속하기 위한 패스워드 정보
+    sentinel auth-pass mymaster foobared 
+
+    # 센티널이 Master 인스턴스와 접속이 끊겼다는 것을 알기 위한 최소한의 시간 설정
+    sentinel down-after-milliseconds mymaster 30000 
+    
+    # fail-over 작업 시간의 타임오버 시간을 지정 (default : 3분)
+    sentinel failover-timeout mymaster 180000 
+
+    # Master로부터 동기화 할 수 있는 slave의 개수를 지정
+    sentinel parallel-syncs mymaster 1
+    
 
 #### 2. master 및 slave config 설정
 
