@@ -28,7 +28,7 @@
 ### 4) Redis 실행
 
     $ cd ${REDIS_HOME}/src
-    $ ./redis-cli
+    $ ./redis-server
     
 ### 5) Redis 종료
 
@@ -53,3 +53,7 @@
 
     $ cd ${REDIS_HOME}/src
     $ ./redis-server --version
+    
+## redis-cli 접속
+
+* 호스트명과 포트번호를 생략하면 localhost의 6379로 접속
