@@ -113,7 +113,28 @@
 
 #### 2. master 및 slave config 설정
 
+    # master / slave 종료 
+    redis-cli -p 6379 -a foobared shutdown 
+    redis-cli -p 6380 shutdown 
+    redis-cli -p 6381 shutdown 
+
+    # masterauth 및 requirepass 설정 
+    vi ${REDIS_HOME}/src/6379.conf 
+    vi ${REDIS_HOME}/src/6380.conf 
+    vi ${REDIS_HOME}/src/6381.conf 
+
+    # 6379.conf ~ 6381.conf 
+    masterauth foobared 
+    requirepass foobared
+
 #### 3. redis 재실행
+
+    cd ${REDIS_HOME}/src/redis-server ./6379.conf & redis-server ./6380.conf & redis-server ./6381.conf & #
+
+    # requirepass 설정후 shutdown 명령어 
+    redis-cli -p 6379 -a foobared shutdown 
+    redis-cli -p 6380 -a foobared shutdown 
+    redis-cli -p 6381 -a foobared shutdown
 
 #### 4. sentinel 실행 및 종료
 
