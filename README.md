@@ -138,7 +138,29 @@
 
 #### 4. sentinel 실행 및 종료
 
+    # 실행
+    $ cd ${REDIS_HOME}
+    $ redis-sentinel ./sentinel_11001.conf & redis-sentinel ./sentinel_11002.conf & redis-sentinel ./sentinel_11003.conf &
+    
+    # process 확인
+    $ ps -ef | grep redis
+    
+    # sentinel 접속
+    $ cd ${REDIS_HOME}
+    $ redis-cli -p 11001
+    $ redis-cli -p 11002
+    $ redis-cli -p 11003
+    
+    # 종료
+    $ redis-cli -p 11001 shutdown
+    $ redis-cli -p 11002 shutdown
+    $ redis-cli -p 11003 shutdown
+    
 #### 5. 각 노드의 정보 확인
+
+    # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
+    $ redis-cli -p 11001
+    $ 127.0.0.1:11001> info
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
