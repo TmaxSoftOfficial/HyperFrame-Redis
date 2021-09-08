@@ -156,6 +156,10 @@
     $ redis-cli -p 11002 shutdown
     $ redis-cli -p 11003 shutdown
     
+### 2) Cluster 방식    
+    
+    
+    
 #### 5. 각 노드의 정보 확인
 
     # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
