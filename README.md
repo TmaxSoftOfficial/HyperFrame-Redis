@@ -76,11 +76,10 @@
 
 ## HA 구성하기 (Master slave)
 
-### 1) sentinel 방식
+### 1) Redis 압축 풀기
 
-   $ cd ${REDIS_HOME}/src
-   $ redis-cli
-    
+    $ cd ${INSTALL_HOME}
+    $ tar -zxvf redis-6.2.3.tar.gz
 
 
 ## Tomcat Session Manager에서의 Redis 사용법
