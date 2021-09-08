@@ -83,7 +83,7 @@
     $ cp sentinel conf sentinel_11002.conf
     $ cp sentinel conf sentinel_11003.conf
     
-#### 2) Sentinel 방식
+#### master 및 slave config 
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
