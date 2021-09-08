@@ -129,7 +129,7 @@
 
 #### 3. redis 재실행
 
-    cd ${REDIS_HOME}/src/redis-server ./6379.conf & redis-server ./6380.conf & redis-server ./6381.conf & #
+    cd ${REDIS_HOME}/src/redis-server ./6379.conf & redis-server ./6380.conf & redis-server ./6381.conf & 
 
     # requirepass 설정후 shutdown 명령어 
     redis-cli -p 6379 -a foobared shutdown 
