@@ -78,10 +78,8 @@
 
 ### 1) sentinel 방식
 
-* sentinel 구성시 최소 3개이상 홀수로 만들어야 함
-
-    $ cd ${INSTALL_HOME}
-    $ tar -zxvf redis-6.2.3.tar.gz
+   $ cd ${REDIS_HOME}/src
+   $ redis-cli
     
 
 
