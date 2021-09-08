@@ -78,9 +78,12 @@
 
 ### 1) Sentinel 방식
 
-    $ cd ${INSTALL_HOME}
-    $ tar -zxvf redis-6.2.3.tar.gz
-
+    $ cd ${REDIS_HOME}                             ## sentinel 구성시 최소 3개이상의 conf 파일을 생성해야 한다.
+    $ cp sentinel conf sentinel_11001.conf
+    $ cp sentinel conf sentinel_11002.conf
+    $ cp sentinel conf sentinel_11003.conf
+    
+#### 2) Sentinel 방식
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
