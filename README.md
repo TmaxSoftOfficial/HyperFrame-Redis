@@ -57,3 +57,19 @@
 ## redis-cli 접속
 
 * 호스트명과 포트번호를 생략하면 localhost의 6379로 접속
+
+### 1) localhost:6379 접속
+    $ cd ${REDIS_HOME}/src
+    $ redis-cli
+    
+### 2) 원격접속
+    $ redis-cli -h <호스트명> -p <포트번호>    ## ex) ./redis-cli -h 127.0.0.1 -p 6379
+
+### 3) 정보보기
+    $ redis-cli info
+    
+### 4) help
+    $ redis-cli help
+
+### 5) 모니터링
+    $ redis-cli monitor
