@@ -158,7 +158,21 @@
     
 ### 2) Cluster 방식    
     
-    
+#### 1. master로만 구성한 Clustering
+
+    # 마스터 노드로 사용할 redis instance를 복사해서 3개를 만든 후, Master 노드 환경 파일을 수정한다.
+    $ cd ${REDIS_HOME}
+    $ vi 6379.conf ~ 6381.conf 까지 작성한 후 아래와 같이 설정한다.
+    appendonly yes 
+    cluster-enabled yes 
+    cluster-config-file nodes-6379.conf 
+    cluster-node-timeout 15000 
+
+    # 재시작 
+    service redis_6379 restart 
+    service redis_6380 restart 
+    service redis_6381 restart
+
     
 #### 5. 각 노드의 정보 확인
 
