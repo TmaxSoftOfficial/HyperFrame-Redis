@@ -83,7 +83,26 @@
     $ cp sentinel conf sentinel_11002.conf
     $ cp sentinel conf sentinel_11003.conf
     
-#### master 및 slave config 
+#### 아래와 같이 conf 파일에 환경설정을 정의
+
+# 11001.conf ~ 11003.conf 
+# 센티널이 실행될 포트 (이부분은 포트별로 다르게 설정) 
+port 11001 
+pidfile "/var/run/redis-sentinel_11001.pid" 
+logfile "/var/log/sentinel_11002.log" 
+
+# 센티널이 감시할 레디스 Master 인스턴스 정보 
+# sentinel monitor mymaster <redis master host> <redis master port> <quorum> 
+sentinel monitor mymaster 127.0.0.1 6379 2 
+# 센티널이 Master 인스턴스에 접속하기 위한 패스워드를 넣어줍니다. 
+sentinel auth-pass mymaster foobared # 센티널이 Master 인스턴스와 접속이 끊겼다는 것을 알기 위한 최소한의 시간입니다. sentinel down-after-milliseconds mymaster 30000 # 페일오버 작업 시간의 타임오버 시간을 정합니다. # 기본값은 3분입니다. sentinel failover-timeout mymaster 180000 # 이 값은 Master로부터 동기화 할 수 있는 slave의 개수를 지정합니다. # 값이 클수록 Master에 부하가 가중됩니다. # 값이 1이라면 Slave는 한대씩 Master와 동기화를 진행합니다. sentinel parallel-syncs mymaster 1
+
+출처: https://mycup.tistory.com/282 [IT.FARMER]
+
+출처: https://mycup.tistory.com/282 [IT.FARMER]
+
+출처: https://mycup.tistory.com/282 [IT.FARMER]
+
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
