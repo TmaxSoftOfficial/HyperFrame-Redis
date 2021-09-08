@@ -76,6 +76,7 @@
 
 ## HA 구성하기 (Master slave)
 
+* replication 노드에서 master 정보에 대해 추가 
 * redis.conf 파일에 slaveof 파일에 Master 서버의 IP와 Port를 입력해준후 재기동
 
 ## Tomcat Session Manager에서의 Redis 사용법
