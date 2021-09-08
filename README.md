@@ -77,3 +77,8 @@
 ## HA 구성하기 (Master slave)
 
 * redis.conf 파일에 slaveof 파일에 Master 서버의 IP와 Port를 입력해준후 재기동
+
+## Tomcat Session Manager에서의 Redis 사용법
+
+* 아래의 링크 참조
+* https://github.com/redisson/redisson/tree/master/redisson-tomcat 
