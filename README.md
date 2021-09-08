@@ -79,8 +79,8 @@
 ### 1) sentinel 방식
 
 * sentinel 구성시 최소 3개이상 홀수로 만들어야 함
-* 
-    $ cd ${REDIS_HOME}
+
+    $ cd {REDIS_HOME}
     $ cp sentinel.conf sentinel_11001.conf
     $ cp sentinel.conf sentinel_11002.conf
     $ cp sentinel.conf sentinel_11003.conf
