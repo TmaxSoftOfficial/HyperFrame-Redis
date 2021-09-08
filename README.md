@@ -76,8 +76,16 @@
 
 ## HA 구성하기 (Master slave)
 
-* replication 노드에서 master 정보에 대해 추가 
-* redis.conf 파일에 slaveof 파일에 Master 서버의 IP와 Port를 입력해준후 재기동    ## ex) replicaof 127.0.0.1 6001 (master ip port)
+### 1) sentinel 방식
+
+* sentinel 구성시 최소 3개이상 홀수로 만들어야 함
+* 
+    $ cd ${REDIS_HOME}
+    $ cp sentinel.conf sentinel_11001.conf
+    $ cp sentinel.conf sentinel_11002.conf
+    $ cp sentinel.conf sentinel_11003.conf
+    
+
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
