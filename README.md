@@ -73,3 +73,7 @@
 
 ### 5) 모니터링
     $ redis-cli monitor
+
+## HA 구성하기 (Master slave)
+
+* redis.conf 파일에 slaveof 파일에 Master 서버의 IP와 Port를 입력해준후 재기동
