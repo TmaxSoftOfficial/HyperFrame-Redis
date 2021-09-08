@@ -160,9 +160,9 @@
     
 #### 1. master로만 구성한 Clustering
 
-    # 마스터 노드로 사용할 redis instance를 복사해서 3개를 만든 후, Master 노드 환경 파일을 수정한다.
+    # 마스터 노드로 사용할 redis instance를 복사해서 3개를 만든 후, Master 노드 환경 파일을 수정
     $ cd ${REDIS_HOME}
-    $ vi 6379.conf ~ 6381.conf 까지 작성한 후 아래와 같이 설정한다.
+    $ vi 6379.conf ~ 6381.conf 까지 작성한 후 아래와 같이 설정
     appendonly yes 
     cluster-enabled yes 
     cluster-config-file nodes-6379.conf 
@@ -173,6 +173,11 @@
     service redis_6380 restart 
     service redis_6381 restart
 
+    # Master Node Clustering 설정. 명령어 실행 후 구성으로 설정하겠냐는 질문에 확인하고 동의(yes)
+    $ redis-cli --cluster create 127.0.0.1:6379 127.0.0.1:6379 127.0.0.1:6381
+    >>> Performing hash slots allocation on 3 nodes... Master[0] -> Slots 0 - 5460 Master[1] -> Slots 5461 - 10922 Master[2] -> Slots 10923 - 16383 M:        dc3803213aff6f279f6344559c8147198227aacc 127.0.0.1:6379 slots:[0-5460] (5461 slots) master
+
+     .......
     
 #### 5. 각 노드의 정보 확인
 
