@@ -85,6 +85,13 @@
     $ cp sentinel conf sentinel_11002.conf
     $ cp sentinel conf sentinel_11003.conf
 
+#### 2. master 및 slave config 설정
+
+#### 3. redis 재실행
+
+#### 4. sentinel 실행 및 종료
+
+#### 5. 각 노드의 정보 확인
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
