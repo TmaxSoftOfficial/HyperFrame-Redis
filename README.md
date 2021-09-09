@@ -155,7 +155,9 @@
     logfile "/home/redis6/logs/sentinel_11001.log"
     sentinel monitor mymaster 127.0.0.1 6379 2
 
-    
+#### 3. redis 재실행 
+ 
+* Redis Replication (Master Slave) 구성의 redis 실행 및 종료 참고    
 
 #### 3. sentinel 실행 및 종료
 
