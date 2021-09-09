@@ -95,7 +95,7 @@
 #### 2. sentinel config 설정
 
     cd ${REDIS_HOME} 
-    cp sentinel.conf sentinel_1001.conf ~ 1003.conf 
+    vi sentinel.conf sentinel_1001.conf ~ 1003.conf 
 
     # 11001.conf ~ 11003.conf 
     # 센티널이 실행될 포트로 각각 설정 
