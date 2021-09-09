@@ -112,11 +112,6 @@
     $ ./redis-sentinel ./../sentinel_11001.conf &   
     $ ./redis-sentinel ./../sentinel_11002.conf &
     $ ./redis-sentinel ./../sentinel_11003.conf &
-
-    # shell에서 info를 입력하면 sentinel의 정보 확인
-    $ redis-cli -p 11001
-    $ redis-cli -p 11002
-    $ redis-cli -p 11003
     
     # sentinel은 다음의 명령어로 종료
     $ redis-cli -p 11001 shutdown
@@ -127,7 +122,7 @@
 #### 4. 각 노드의 정보 확인
 
     # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
-    $ redis-cli -p 11001
+    $ redis-cli -p 11001 ~ 11002
     $ 127.0.0.1:11001> info    
     
 ### 2) Cluster 방식    
