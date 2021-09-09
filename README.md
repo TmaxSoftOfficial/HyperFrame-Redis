@@ -87,7 +87,7 @@
 
     $ cd ${REDIS_HOME}/utils
     $ install_server.sh
-    $ [root@rainbow utils]# ./install_server.sh        ## master(6379), slave1(6380), slave2(6381)로 생성
+    $ [root@rainbow utils]# ./install_server.sh      ## master(6379), slave1(6380), slave2(6381)로 생성
       Welcome to the redis service installer
       This script will help you easily set up a running redis server
 
@@ -139,7 +139,7 @@
 
 #### 1. sentinel config 복사
 
-    $ cd ${REDIS_HOME}                             ## sentinel 구성시 최소 3개이상의 conf 파일을 생성
+    $ cd ${REDIS_HOME}                               ## sentinel 구성시 최소 3개이상의 conf 파일을 생성
     $ cp sentinel.conf sentinel_11001.conf
     $ cp sentinel.conf sentinel_11002.conf
     $ cp sentinel.conf sentinel_11003.conf
@@ -150,7 +150,7 @@
     $ vi sentinel.conf sentinel_11001.conf ~ 11003.conf 
 
     protected-mode no
-    port 11001                                     # sentinel_11002.conf, sentinel_11003.conf의 경우도 port와 pidfile 및 logfile을 세팅해서 동일하게 작성
+    port 11001                                       # sentinel_11002.conf, sentinel_11003.conf의 경우도 port와 pidfile 및 logfile을 세팅해서 동일하게 작성
     pidfile "/var/run/redis-sentinel_11001.pid"
     logfile "/home/redis6/logs/sentinel_11001.log"
     sentinel monitor mymaster 127.0.0.1 6379 2
