@@ -111,27 +111,33 @@
       Successfully added to runlevels 345!
       Starting Redis server...
       Installation successful!
+      
+### 2) Replication config 설정
+
+    # slave(6380.conf, 6381.conf에 아래내용 설정)
+    replicaof 127.0.0.1 6379
     
-### 2) 프로세스 확인
-
-    $ ps -ef | grep redis
-      redis6    9471     1  0 14:47 ?        00:00:03 ./redis-server 0.0.0.0:6379
-      redis6    9477     1  0 14:47 ?        00:00:01 ./redis-server 0.0.0.0:6380
-      redis6    9483     1  0 14:47 ?        00:00:01 ./redis-server 0.0.0.0:6381
-
-### 3) redis 실행 및 종료
-
-    # 종료
-    $ cd ${REDIS_HOME}/src
-    $ redis-cli -p 6379 shutdown
-    $ redis-cli -p 6380 shutdown
-    $ redis-cli -p 6381 shutdown
+### 2) redis 실행 및 종료
     
     # 실행
     $ cd ${REDIS_HOME}/src
     $ redis-server ./../6379.conf &
     $ redis-server ./../6380.conf &
     $ redis-server ./../6381.conf &
+    
+    # 종료
+    $ cd ${REDIS_HOME}/src
+    $ redis-cli -p 6379 shutdown
+    $ redis-cli -p 6380 shutdown
+    $ redis-cli -p 6381 shutdown
+    
+### 3) 프로세스 확인
+
+    $ ps -ef | grep redis
+      redis6    9471     1  0 14:47 ?        00:00:03 ./redis-server 0.0.0.0:6379
+      redis6    9477     1  0 14:47 ?        00:00:01 ./redis-server 0.0.0.0:6380
+      redis6    9483     1  0 14:47 ?        00:00:01 ./redis-server 0.0.0.0:6381
+    
 
 ## HA 구성 
 
