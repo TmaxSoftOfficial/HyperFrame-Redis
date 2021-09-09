@@ -75,11 +75,11 @@
     $ redis-cli monitor
     
 ### 6) 데이터 입력 및 확인
-    $ redis-cli -c -p 6379  
-    $ 127.0.0.1:6379> set key1 value2 
-    -> Redirected to slot [9189] located at 127.0.0.1:6380 OK
-
-
+    $ ./redis-cli -h localhost -p 6379  
+    $ localhost:6379> set key value
+    $ OK
+    $ localhost:6379> get key
+    $ "value"
 
 ## HA 구성하기 (Master slave)
 
