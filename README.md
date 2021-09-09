@@ -63,7 +63,7 @@
     $ redis-cli
     
 ### 2) 원격접속
-    $ redis-cli -h <호스트명> -p <포트번호>    ## ex) ./redis-cli -h 127.0.0.1 -p 6379
+    $ redis-cli -h <호스트명> -p <포트번호>           ## ex) ./redis-cli -h 127.0.0.1 -p 6379
 
 ### 3) 정보보기
     $ redis-cli info
