@@ -99,7 +99,8 @@
 
     # 11001.conf ~ 11003.conf 
     # 센티널이 실행될 포트로 각각 설정 
-    port 11001 pidfile "/var/run/redis-sentinel_11001.pid" 
+    port 11001 
+    pidfile "/var/run/redis-sentinel_11001.pid" 
     logfile "/var/log/sentinel_11002.log" 
 
     # 센티널이 감시할 레디스 Master 인스턴스 정보 기입 
