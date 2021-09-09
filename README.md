@@ -25,12 +25,12 @@
     $ cd ${REDIS_HOME}
     $ make install
 
-### 4) Redis 실행
+### 3) Redis 실행
 
     $ cd ${REDIS_HOME}/src
     $ ./redis-server
     
-### 5) Redis 종료
+### 4) Redis 종료
 
     $ cd ${REDIS_HOME}/src
     $ ./redis-cli shutdown
@@ -92,7 +92,7 @@
     $ cp sentinel conf sentinel_11002.conf
     $ cp sentinel conf sentinel_11003.conf
     
-#### 1.1 sentinel config 설정
+#### 2. sentinel config 설정
 
     cd redis_home_dirctory 
     cp sentinel.conf sentinel_1001.conf ~ 1003.conf 
@@ -118,7 +118,7 @@
     sentinel parallel-syncs mymaster 1
     
 
-#### 2. master 및 slave config 설정
+#### 3. master 및 slave config 설정
 
     # master / slave 종료 
     redis-cli -p 6379 -a foobared shutdown 
@@ -134,7 +134,7 @@
     masterauth foobared 
     requirepass foobared
 
-#### 3. redis 재실행
+#### 4. redis 재실행
 
     cd ${REDIS_HOME}/src/redis-server ./6379.conf & redis-server ./6380.conf & redis-server ./6381.conf & 
 
@@ -143,7 +143,7 @@
     redis-cli -p 6380 -a foobared shutdown 
     redis-cli -p 6381 -a foobared shutdown
 
-#### 4. sentinel 실행 및 종료
+#### 5. sentinel 실행 및 종료
 
     # 실행
     $ cd ${REDIS_HOME}
@@ -163,7 +163,7 @@
     $ redis-cli -p 11002 shutdown
     $ redis-cli -p 11003 shutdown
     
-#### 5. 각 노드의 정보 확인
+#### 6. 각 노드의 정보 확인
 
     # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
     $ redis-cli -p 11001
