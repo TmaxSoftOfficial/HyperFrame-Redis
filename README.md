@@ -91,7 +91,7 @@
       Welcome to the redis service installer
       This script will help you easily set up a running redis server
 
-      Please select the redis port for this instance: [6379]
+      Please select the redis port for this instance: [6379]      ## 실행후 6380 및 6381.conf install_server.sh 돌려서 동일하게 생성
       Selecting default: 6379
       Please select the redis config file name [/etc/redis/6379.conf] /home/redis6/redis-6.2.3/6379.conf
       Please select the redis log file name [/var/log/redis_6379.log] /home/redis6/logs/reids_6379.log
@@ -111,6 +111,7 @@
       Successfully added to runlevels 345!
       Starting Redis server...
       Installation successful!
+    
     
 
 ## HA 구성 
