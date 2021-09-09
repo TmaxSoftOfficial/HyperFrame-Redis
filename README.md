@@ -186,7 +186,7 @@
     service redis_6380 restart 
     service redis_6381 restart
 
-    # Master Node Clustering 설정. 명령어 실행 후 구성으로 설정하겠냐는 질문에 확인하고 동의(yes)
+    # Master Node Clustering 설정. 명령어 실행 후 설정한 구성 확인하고 동의(yes)
     $ redis-cli --cluster create 127.0.0.1:6379 127.0.0.1:6379 127.0.0.1:6381
     >>> Performing hash slots allocation on 3 nodes... Master[0] -> Slots 0 - 5460 Master[1] -> Slots 5461 - 10922 Master[2] -> Slots 10923 - 16383 M:        dc3803213aff6f279f6344559c8147198227aacc 127.0.0.1:6379 slots:[0-5460] (5461 slots) master
 
