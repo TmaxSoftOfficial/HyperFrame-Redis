@@ -115,6 +115,8 @@
 
     # shell에서 info를 입력하면 sentinel의 정보 확인
     $ redis-cli -p 11001
+    $ redis-cli -p 11002
+    $ redis-cli -p 11003
     
     # sentinel은 다음의 명령어로 종료
     $ redis-cli -p 11001 shutdown
