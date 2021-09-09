@@ -81,7 +81,39 @@
     $ localhost:6379> get key
     $ "value"
 
-## HA 구성하기 (Master slave)
+## Redis Replication (Master Slave) 구성
+
+### 1) Master, Slave 구성
+
+    $ cd ${REDIS_HOME}/utils
+    $ install_server.sh
+    $ [root@rainbow utils]# ./install_server.sh
+      Welcome to the redis service installer
+      This script will help you easily set up a running redis server
+
+      Please select the redis port for this instance: [6379]
+      Selecting default: 6379
+      Please select the redis config file name [/etc/redis/6379.conf] /home/redis6/redis-6.2.3/6379.conf
+      Please select the redis log file name [/var/log/redis_6379.log] /home/redis6/logs/reids_6379.log
+      Please select the data directory for this instance [/var/lib/redis/6379] /home/redis6/redis-6.2.3/6379
+      Please select the redis executable path [] /home/redis6/redis-6.2.3/src/redis-server
+      Selected config:
+      Port           : 6379
+      Config file    : /home/redis6/redis-6.2.3/6379.conf
+      Log file       : /home/redis6/logs/reids_6379.log
+      Data dir       : /home/redis6/redis-6.2.3/6379
+      Executable     : /home/redis6/redis-6.2.3/src/redis-server
+      Cli Executable : /home/redis6/redis-6.2.3/src/redis-cli
+      Is this ok? Then press ENTER to go on or Ctrl-C to abort.
+      Copied /tmp/6379.conf => /etc/init.d/redis_6379
+      Installing service...
+      Successfully added to chkconfig!
+      Successfully added to runlevels 345!
+      Starting Redis server...
+      Installation successful!
+    
+
+## HA 구성 
 
 ### 1) Sentinel 방식
 
