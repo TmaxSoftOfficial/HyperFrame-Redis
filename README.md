@@ -157,9 +157,9 @@
 
 #### 3. redis 재실행 
  
-* Redis Replication (Master Slave) 구성의 redis 실행 및 종료 참고    
+* Redis Replication (Master Slave) 구성의 3) redis 실행 및 종료 참고    
 
-#### 3. sentinel 실행 및 종료
+#### 4. sentinel 실행 및 종료
 
     # sentinel은 다음의 명령어로 실행
     $ cd ${REDIS_HOME}/src
@@ -173,7 +173,7 @@
     $ redis-cli -p 11003 shutdown
 
 
-#### 4. 각 노드의 정보 확인
+#### 5. 각 노드의 정보 확인
 
     # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
     $ redis-cli -p 11001 ~ 11002
