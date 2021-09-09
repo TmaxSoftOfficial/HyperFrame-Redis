@@ -94,7 +94,7 @@
     
 #### 2. sentinel config 설정
 
-    cd redis_home_dirctory 
+    cd ${REDIS_HOME} 
     cp sentinel.conf sentinel_1001.conf ~ 1003.conf 
 
     # 11001.conf ~ 11003.conf 
@@ -104,9 +104,6 @@
 
     # 센티널이 감시할 레디스 Master 인스턴스 정보 기입 
     sentinel monitor mymaster 127.0.0.1 6379 2 
-
-    # 센티널이 Master 인스턴스에 접속하기 위한 패스워드 정보
-    sentinel auth-pass mymaster foobared 
 
     # 센티널이 Master 인스턴스와 접속이 끊겼다는 것을 알기 위한 최소한의 시간 설정
     sentinel down-after-milliseconds mymaster 30000 
