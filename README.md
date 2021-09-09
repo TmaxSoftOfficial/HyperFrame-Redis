@@ -191,19 +191,15 @@
     cluster-config-file nodes-6379.conf 
     cluster-node-timeout 15000 
 
-    # 재시작 
-    service redis_6379 restart 
-    service redis_6380 restart 
-    service redis_6381 restart
+    # Redis 6379, 6380, 6381 재기동
 
     # Master Node Clustering 설정. 명령어 실행 후 설정한 구성 확인하고 동의(yes)
-    $ redis-cli --cluster create 127.0.0.1:6379 127.0.0.1:6379 127.0.0.1:6381
+    $ redis-cli --cluster create 127.0.0.1:6379 127.0.0.1:6380 127.0.0.1:6381
     >>> Performing hash slots allocation on 3 nodes... Master[0] -> Slots 0 - 5460 Master[1] -> Slots 5461 - 10922 Master[2] -> Slots 10923 - 16383 M:        dc3803213aff6f279f6344559c8147198227aacc 127.0.0.1:6379 slots:[0-5460] (5461 slots) master
 
      .......
      
-#### 2. cluster 정보 확인
-
+    # cluster 정보 확인
     $ redis-cli --cluster info 127.0.0.1:6379
     127.0.0.1:6379 (dc380321...) -> 4 keys | 5461 slots | 1 slaves. 
     127.0.0.1:6380 (b79c0eda...) -> 3 keys | 5462 slots | 1 slaves. 
@@ -211,7 +207,37 @@
     [OK] 8 keys in 3 masters. 
     0.00 keys per slot on average.
     
+#### 2. master 및 slave 구조의 clustering    
+    
+    # Slave Node 생성
+    $ cd ${REDIS_HOME}/utils
+    $ install_server.sh       ## 6479.conf ~ 6481.conf까지 생성한다.
+    
+    # vi 6479.conf ~6481.conf
+    appendonly yes 
+    cluster-enabled yes 
+    cluster-config-file nodes-6379.conf 
+    cluster-node-timeout 15000
 
+    # Redis 6479, 6480, 6481 재기동
+    
+    # Master node에 slave node를 추가 
+    # redis-cli --cluster add-node {slave ip}:{port} {master ip}:{port} --cluster-slave
+    $ redis-cli --cluster add-node 127.0.0.1:6479 127.0.0.1:6379 --cluster-slave
+    $ redis-cli --cluster add-node 127.0.0.1:6480 127.0.0.1:6389 --cluster-slave
+    $ redis-cli --cluster add-node 127.0.0.1:6481 128.0.0.1:6381 --cluster-slave 
+    
+    >>> Adding node 127.0.0.1:6481 to cluster 127.0.0.1:6381 
+    >>> Performing Cluster Check (using node 127.0.0.1:6381) 
+    M: 18b188cb18a61acaa61dc1b7e068602c1d41e308 127.0.0.1:6381 
+       slots:[10923-16383] (5461 slots) master 
+    M: dc3803213aff6f279f6344559c8147198227aacc 127.0.0.1:6379 
+       slots:[0-5460] (5461 slots) master
+       
+    .....
+
+
+    
 ## Tomcat Session Manager에서의 Redis 사용법
 
 * 아래의 링크 참조
