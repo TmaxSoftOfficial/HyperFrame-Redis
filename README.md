@@ -74,7 +74,7 @@
 ### 5) 모니터링
     $ redis-cli monitor
     
-### 6) 데이터 입력 및 확인
+### 6) 데이터 입력 및 확인 (get/set)
     $ ./redis-cli -h localhost -p 6379  
     $ localhost:6379> set key value
     $ OK
