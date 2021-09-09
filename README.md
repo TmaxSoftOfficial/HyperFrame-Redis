@@ -163,6 +163,12 @@
     $ redis-cli -p 11002 shutdown
     $ redis-cli -p 11003 shutdown
     
+#### 5. 각 노드의 정보 확인
+
+    # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
+    $ redis-cli -p 11001
+    $ 127.0.0.1:11001> info    
+    
 ### 2) Cluster 방식    
     
 #### 1. master로만 구성한 Clustering
@@ -195,11 +201,6 @@
     [OK] 8 keys in 3 masters. 
     0.00 keys per slot on average.
     
-#### 5. 각 노드의 정보 확인
-
-    # redis sentinel에 접속해서 info 명령어로 각 노드의 정보 확인
-    $ redis-cli -p 11001
-    $ 127.0.0.1:11001> info
 
 ## Tomcat Session Manager에서의 Redis 사용법
 
