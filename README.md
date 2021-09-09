@@ -88,9 +88,9 @@
 #### 1. sentinel config 복사
 
     $ cd ${REDIS_HOME}                             ## sentinel 구성시 최소 3개이상의 conf 파일을 생성해야 한다.
-    $ cp sentinel conf sentinel_11001.conf
-    $ cp sentinel conf sentinel_11002.conf
-    $ cp sentinel conf sentinel_11003.conf
+    $ cp sentinel.conf sentinel_11001.conf
+    $ cp sentinel.conf sentinel_11002.conf
+    $ cp sentinel.conf sentinel_11003.conf
     
 #### 2. sentinel config 설정
 
