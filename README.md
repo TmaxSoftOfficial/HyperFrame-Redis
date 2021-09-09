@@ -94,8 +94,8 @@
     
 #### 2. sentinel config 설정
 
-    cd ${REDIS_HOME} 
-    vi sentinel.conf sentinel_11001.conf ~ 11003.conf 
+    $ cd ${REDIS_HOME} 
+    $ vi sentinel.conf sentinel_11001.conf ~ 11003.conf 
 
     protected-mode no
     port 11001                                     # sentinel_11002.conf, sentinel_11003.conf의 경우도 port와 pidfile 및 logfile을 세팅해서 동일하게 작성
@@ -105,21 +105,21 @@
 
     
 
-#### 3. master 및 slave config 설정
+#### 3. sentinel 실행 및 종료
 
-    # master / slave 종료 
-    redis-cli -p 6379 -a foobared shutdown 
-    redis-cli -p 6380 shutdown 
-    redis-cli -p 6381 shutdown 
+    # sentinel은 다음의 명령어로 실행
+    $ cd ${REDIS_HOME}/src
+    $ ./redis-sentinel ./../sentinel_11001.conf &   
+    $ ./redis-sentinel ./../sentinel_11002.conf &
+    $ ./redis-sentinel ./../sentinel_11003.conf &
 
-    # masterauth 및 requirepass 설정 
-    vi ${REDIS_HOME}/src/6379.conf 
-    vi ${REDIS_HOME}/src/6380.conf 
-    vi ${REDIS_HOME}/src/6381.conf 
-
-    # 6379.conf ~ 6381.conf 
-    masterauth foobared 
-    requirepass foobared
+    # shell에서 info를 입력하면 sentinel의 정보 확인
+    $ redis-cli -p 11001
+    
+    # sentinel은 다음의 명령어로 종료
+    $ redis-cli -p 11001 shutdown
+    $ redis-cli -p 11002 shutdown
+    $ redis-cli -p 11003 shutdown
 
 #### 4. redis 재실행
 
